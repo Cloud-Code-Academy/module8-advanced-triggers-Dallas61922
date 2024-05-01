@@ -18,7 +18,7 @@ Remember, whichever option you choose, ensure that the trigger is activated and 
 trigger OpportunityTrigger on Opportunity (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
     OpportunityTriggerHandler handler = new OpportunityTriggerHandler();
     handler.run();
-    Boolean stopTrigger = Trigger_Setting__mdt.getInstance('OpportunityTrigger')?.Disable_Trigger__c;
+    //Boolean stopTrigger = Trigger_Setting__mdt.getInstance('OpportunityTrigger')?.Disable_Trigger__c;
     
     /*
     * Opportunity Trigger
