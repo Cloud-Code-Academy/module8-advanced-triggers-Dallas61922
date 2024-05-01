@@ -587,6 +587,7 @@ public with sharing class TriggerBestPracticeTest {
                     con.FirstName = 'Big Boss';
                 }
                 contactsToInsert.add(con);
+                System.debug('TEST Contacts to insert are: ' + contactsToInsert);
             }  
             
             for (Integer i = 0; i < 10; i++) {
@@ -599,6 +600,7 @@ public with sharing class TriggerBestPracticeTest {
                     Primary_Contact__c = null
                 );
                 opportunitiesToInsert.add(opp);
+                System.debug('TEST opps to insert are: ' + opportunitiesToInsert);
             }
             
         }
