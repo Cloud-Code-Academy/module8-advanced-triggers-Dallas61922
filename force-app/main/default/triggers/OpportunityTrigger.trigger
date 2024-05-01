@@ -20,6 +20,7 @@ trigger OpportunityTrigger on Opportunity (before insert, after insert, before u
     handler.run();
     //Boolean stopTrigger = Trigger_Setting__mdt.getInstance('OpportunityTrigger')?.Disable_Trigger__c;
     
+    
     /*
     * Opportunity Trigger
     * When an opportunity is updated validate that the amount is greater than 5000.
