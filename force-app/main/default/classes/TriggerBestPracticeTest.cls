@@ -25,6 +25,7 @@ No test methods should need to be altered for the tests to pass.
 */
 @IsTest
 public with sharing class TriggerBestPracticeTest {
+
     
     // Part 1 - AccountTrigger Changes
     /*
@@ -55,8 +56,11 @@ public with sharing class TriggerBestPracticeTest {
         
         // Perform the test
         Test.startTest();
-        insert accountTypeProspect;
-        insert accountTypeNotChange;
+        Database.DMLOptions dml = new Database.DMLOptions(); 
+        dml.DuplicateRuleHeader.allowSave = true;
+        dml.DuplicateRuleHeader.runAsCurrentUser = true;
+        Database.insert(accountTypeProspect, dml);
+        Database.insert(accountTypeNotChange, dml);
         Test.stopTest();
         
         // Retrieve the accounts again
@@ -171,8 +175,11 @@ public with sharing class TriggerBestPracticeTest {
 
         // Perform the test
         Test.startTest();
-        insert accountsToInsert;
-        insert accountsNotHot;
+        Database.DMLOptions dml = new Database.DMLOptions(); 
+        dml.DuplicateRuleHeader.allowSave = true;
+        dml.DuplicateRuleHeader.runAsCurrentUser = true;
+        Database.insert(accountsToInsert, dml);
+        Database.insert(accountsNotHot, dml);
         Test.stopTest();
 
         // Retrieve the accounts again
@@ -217,7 +224,10 @@ public with sharing class TriggerBestPracticeTest {
 
         // Perform the test
         Test.startTest();
-        insert accountsToInsert;
+        Database.DMLOptions dml = new Database.DMLOptions(); 
+        dml.DuplicateRuleHeader.allowSave = true;
+        dml.DuplicateRuleHeader.runAsCurrentUser = true;
+        Database.insert(accountsToInsert, dml);
         Test.stopTest();
 
         // Retrieve the newly created Contacts
@@ -587,6 +597,7 @@ public with sharing class TriggerBestPracticeTest {
                     con.FirstName = 'Big Boss';
                 }
                 contactsToInsert.add(con);
+                System.debug('TEST Contacts to insert are: ' + contactsToInsert);
             }  
             
             for (Integer i = 0; i < 10; i++) {
@@ -599,6 +610,7 @@ public with sharing class TriggerBestPracticeTest {
                     Primary_Contact__c = null
                 );
                 opportunitiesToInsert.add(opp);
+                System.debug('TEST opps to insert are: ' + opportunitiesToInsert);
             }
             
         }
